@@ -1,0 +1,18 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: "prueba"
+  devtools:
+    add-properties: false
+  profiles:
+    include: null
+  data:
+    mongodb:
+      uri: "mongodb://admin:admin@localhost:27017/security?authSource=admin"
+
+
+
+jwt:
+  secret: "your-new-secure-key-that-is-at-least-256-bits-long"
+  expiration: 3600000
