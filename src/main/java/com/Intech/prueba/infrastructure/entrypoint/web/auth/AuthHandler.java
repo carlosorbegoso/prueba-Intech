@@ -4,8 +4,8 @@ import com.Intech.prueba.domain.model.dto.LogInDTO;
 import com.Intech.prueba.domain.model.dto.SignUpDTO;
 import com.Intech.prueba.domain.model.dto.TokenDTO;
 import com.Intech.prueba.domain.model.user.User;
-import com.Intech.prueba.domain.usescase.LogInUseCase;
-import com.Intech.prueba.domain.usescase.SignUpUseCase;
+import com.Intech.prueba.domain.usescase.login.LogInUseCase;
+import com.Intech.prueba.domain.usescase.login.SignUpUseCase;
 import org.springframework.http.MediaType;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Component;
@@ -24,14 +24,6 @@ public class AuthHandler {
         this.logInUseCase = logInUseCase;
     }
 
-
-    @PreAuthorize("hasAuthority('ADMIN')")
-    public Mono<ServerResponse> hello(ServerRequest request) {
-
-        return ServerResponse.ok()
-                .contentType(MediaType.TEXT_PLAIN)
-                .body(Mono.just("Hello"), String.class);
-    }
 
     public Mono<ServerResponse> signUp(ServerRequest request) {
 

@@ -1,4 +1,4 @@
-package com.Intech.prueba.domain.usescase;
+package com.Intech.prueba.domain.usescase.login;
 
 import com.Intech.prueba.domain.model.dto.SignUpDTO;
 import com.Intech.prueba.domain.model.user.User;

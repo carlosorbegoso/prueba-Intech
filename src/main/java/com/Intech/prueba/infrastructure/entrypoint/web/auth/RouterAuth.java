@@ -12,9 +12,8 @@ public class RouterAuth {
     private static final String PATH = "auth/";
 
     @Bean
-    public RouterFunction<ServerResponse> helloRoute(AuthHandler authHandler) {
+    public RouterFunction<ServerResponse> authRoute(AuthHandler authHandler) {
         return RouterFunctions.route()
-                .GET("hello", authHandler::hello)
                 .POST(PATH + "signup", authHandler::signUp)
                 .POST(PATH + "login", authHandler::logIn)
                 .build();

@@ -2,8 +2,8 @@ package com.Intech.prueba.app.config;
 
 
 import com.Intech.prueba.domain.model.user.gateway.UserGateway;
-import com.Intech.prueba.domain.usescase.LogInUseCase;
-import com.Intech.prueba.domain.usescase.SignUpUseCase;
+import com.Intech.prueba.domain.usescase.login.LogInUseCase;
+import com.Intech.prueba.domain.usescase.login.SignUpUseCase;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
