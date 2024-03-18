@@ -3,14 +3,16 @@ server:
 spring:
   application:
     name: "prueba"
-  devtools:
-    add-properties: false
   profiles:
     include: null
   data:
     mongodb:
       uri: "mongodb://admin:admin@localhost:27017/security?authSource=admin"
 
+
+
+  kafka:
+    bootstrap-servers: localhost:9092
 
 
 jwt:

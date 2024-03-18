@@ -3,6 +3,7 @@ package com.Intech.prueba.infrastructure.entrypoint.web.product;
 import com.Intech.prueba.domain.model.dto.ProductCreateDto;
 import com.Intech.prueba.domain.model.dto.ProductUpdateDto;
 import com.Intech.prueba.domain.model.product.gateway.ProductGateway;
+import com.Intech.prueba.infrastructure.adpter.kafka.producer.KafkaProducer;
 import com.Intech.prueba.infrastructure.adpter.mongodb.document.ProductDocument;
 import org.springframework.http.MediaType;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -14,10 +15,12 @@ import reactor.core.publisher.Mono;
 @Component
 public class ProductHandler {
     ProductGateway productGateway;
+    private final KafkaProducer kafkaProducer;
 
 
-    public ProductHandler(ProductGateway productGateway) {
+    public ProductHandler(ProductGateway productGateway, KafkaProducer kafkaProducer) {
         this.productGateway = productGateway;
+        this.kafkaProducer = kafkaProducer;
     }
 
 
@@ -28,12 +31,14 @@ public class ProductHandler {
     }
 
     public Mono<ServerResponse> save(ServerRequest request) {
-
         return request.bodyToMono(ProductCreateDto.class)
-                .flatMap(dto -> ServerResponse.ok()
-                        .contentType(MediaType.APPLICATION_JSON)
-                        .body(productGateway.save(dto), ProductDocument.class));
+                .flatMap(dto -> productGateway.save(dto)
+                        .doOnSuccess(product -> kafkaProducer.sendMessage(dto.name()))
+                        .flatMap(product -> ServerResponse.ok()
+                                .contentType(MediaType.APPLICATION_JSON)
+                                .bodyValue(product)));
     }
+
     @PreAuthorize("hasAuthority('ADMIN')")
     public  Mono<ServerResponse> delete(ServerRequest request){
         return ServerResponse.ok()
