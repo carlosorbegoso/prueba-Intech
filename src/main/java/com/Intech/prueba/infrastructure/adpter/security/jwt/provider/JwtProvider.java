@@ -12,7 +12,10 @@ import javax.crypto.SecretKey;
 import java.nio.charset.StandardCharsets;
 import java.util.Date;
 import java.util.logging.Logger;
-
+/**
+ * This class is responsible for providing JWT functionality.
+ * It uses the Spring Framework's @Component annotation to indicate that it is a Spring component.
+ */
 @Component
 public class JwtProvider {
 

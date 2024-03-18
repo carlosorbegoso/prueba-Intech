@@ -5,7 +5,10 @@ import lombok.Data;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
-
+/**
+ * This class is responsible for reading the Kafka configuration properties from the application.properties file.
+ * It uses the Spring Framework's @ConfigurationProperties annotation to map the properties to the fields of this class.
+ */
 @Configuration
 @ConfigurationProperties(prefix = "kafka")
 @Data

@@ -20,6 +20,11 @@ import org.springframework.util.backoff.FixedBackOff;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * This class is responsible for configuring the Kafka consumer.
+ * It uses the Spring Framework's @Configuration and @EnableKafka annotations to indicate that this class contains
+ * configuration for Kafka consumers.
+ */
 @Configuration
 @RequiredArgsConstructor
 @EnableKafka

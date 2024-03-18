@@ -8,7 +8,10 @@ import org.springframework.security.web.server.context.ServerSecurityContextRepo
 import org.springframework.stereotype.Component;
 import org.springframework.web.server.ServerWebExchange;
 import reactor.core.publisher.Mono;
-
+/**
+ * This class is responsible for managing the security context of the application.
+ * It uses the Spring Framework's ServerSecurityContextRepository interface to define a repository that loads and saves the security context of the application.
+ */
 @Component
 public class SecurityContextRepository implements ServerSecurityContextRepository {
 

@@ -8,11 +8,19 @@ import com.Intech.prueba.infrastructure.adpter.mongodb.repository.ProductReactiv
 import org.springframework.stereotype.Repository;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
-
+/**
+ * This class is responsible for interacting with the product data in the MongoDB database.
+ * It implements the ProductGateway interface and uses a ProductReactiveMongoRepository for database operations.
+ *
+ */
 @Repository
 public class ProductMongoAdapter implements ProductGateway {
     private final ProductReactiveMongoRepository productReactiveMongoRepository;
-
+    /**
+     * Constructor for the ProductMongoAdapter class.
+     *
+     * @param productReactiveMongoRepository The repository for performing database operations.
+     */
     public ProductMongoAdapter(ProductReactiveMongoRepository productReactiveMongoRepository) {
         this.productReactiveMongoRepository = productReactiveMongoRepository;
     }

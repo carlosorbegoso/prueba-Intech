@@ -11,7 +11,12 @@ import com.Intech.prueba.infrastructure.adpter.security.jwt.provider.JwtProvider
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Repository;
 import reactor.core.publisher.Mono;
-
+/**
+ * This class is responsible for interacting with the user data in the MongoDB database.
+ * It implements the UserGateway interface and uses a UserReactiveMongoRepository for database operations.
+ * It also uses a PasswordEncoder for password encoding and a JwtProvider for JWT token generation.
+ *
+ */
 @Repository
 public class UserMongoAdapter implements UserGateway {
 

@@ -10,6 +10,12 @@ import org.springframework.security.core.userdetails.UserDetails;
 import java.util.Collection;
 import java.util.stream.Stream;
 
+/**
+ * This class represents a User document in MongoDB.
+ * It is annotated with @Document to indicate that it is a MongoDB document.
+ * It uses Lombok annotations for automatic generation of getters and setters.
+ * It implements UserDetails interface for Spring Security integration.
+ */
 @Setter
 @Getter
 @Document

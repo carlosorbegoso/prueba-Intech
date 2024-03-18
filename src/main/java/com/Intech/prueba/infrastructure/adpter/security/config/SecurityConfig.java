@@ -11,7 +11,11 @@ import org.springframework.security.config.web.server.ServerHttpSecurity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.server.SecurityWebFilterChain;
-
+/**
+ * This class is responsible for configuring the security of the application.
+ * It uses the Spring Framework's @Configuration, @EnableWebFluxSecurity, and @EnableReactiveMethodSecurity annotations to indicate that this class contains
+ * security configuration for a WebFlux application.
+ */
 @Configuration
 @EnableWebFluxSecurity
 @EnableReactiveMethodSecurity

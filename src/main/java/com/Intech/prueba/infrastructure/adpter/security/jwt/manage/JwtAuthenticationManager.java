@@ -11,7 +11,10 @@ import reactor.core.publisher.Mono;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Stream;
-
+/**
+ * This class is responsible for managing JWT authentication.
+ * It uses the Spring Framework's ReactiveAuthenticationManager interface to define a manager that authenticates a user based on a JWT token.
+ */
 @Component
 public class JwtAuthenticationManager implements ReactiveAuthenticationManager {
 

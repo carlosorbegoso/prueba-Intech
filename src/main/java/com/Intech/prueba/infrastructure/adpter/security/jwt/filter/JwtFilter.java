@@ -7,7 +7,10 @@ import org.springframework.web.server.ServerWebExchange;
 import org.springframework.web.server.WebFilter;
 import org.springframework.web.server.WebFilterChain;
 import reactor.core.publisher.Mono;
-
+/**
+ * This class is responsible for filtering requests to the application.
+ * It uses the Spring Framework's WebFilter interface to define a filter that checks for the presence of a JWT token in the request.
+ */
 
 @Component
 public class JwtFilter implements WebFilter {
