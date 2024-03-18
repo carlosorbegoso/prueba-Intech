@@ -33,7 +33,7 @@ public class ProductHandler {
     public Mono<ServerResponse> save(ServerRequest request) {
         return request.bodyToMono(ProductCreateDto.class)
                 .flatMap(dto -> productGateway.save(dto)
-                        .doOnSuccess(product -> kafkaProducer.sendMessage(dto.name()))
+                        .doOnSuccess(product -> kafkaProducer.sendMessage("Product created: " + product.name()))
                         .flatMap(product -> ServerResponse.ok()
                                 .contentType(MediaType.APPLICATION_JSON)
                                 .bodyValue(product)));
